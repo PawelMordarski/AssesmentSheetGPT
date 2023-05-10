@@ -9,7 +9,7 @@
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <groupId>pl.coderslab</groupId>
-    <artifactId>AssesmentSheetGPT</artifactId>
+    <artifactId>AssessmentSheetGPT</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <name>AssesmentSheetGPT</name>
     <description>AssesmentSheetGPT</description>
