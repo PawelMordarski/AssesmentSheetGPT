@@ -28,8 +28,9 @@ public class Sheet {
     private String number;
 
     @Column(nullable = false)
-    private String proces;
+    private ProcesType procesType;
 
+    @Column(length = 2000)
     private String body;
 
     @Column(name = "added")
