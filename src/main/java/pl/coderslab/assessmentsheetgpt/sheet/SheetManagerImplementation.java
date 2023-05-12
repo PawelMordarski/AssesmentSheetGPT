@@ -37,11 +37,7 @@ public class SheetManagerImplementation implements SheetManager {
                         .orElseThrow(
                                 () -> new IllegalArgumentException("No team called " + request.teamName()));
 
-        List<Note> noteList = noteRepository.findAllByTeamAndSheetIsNotNull(team);
-
-//        if (noteList.isEmpty()) {
-//            throw new IllegalStateException("No notes");
-//        }
+        List<Note> noteList = noteRepository.findAllByTeam(team);
 
         Sheet sheet =
                 Sheet.builder()

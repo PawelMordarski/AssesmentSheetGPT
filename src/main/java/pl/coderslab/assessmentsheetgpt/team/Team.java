@@ -26,6 +26,7 @@ public class Team {
     private String department;
 
     @ManyToOne
+    @ToString.Exclude
     private Monitor monitor;
 
 

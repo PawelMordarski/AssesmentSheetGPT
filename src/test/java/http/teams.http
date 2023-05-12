@@ -4,6 +4,6 @@ Content-Type: application/json
 
 {
   "name": "ZODK",
-  "department": "PO"
-}
+  "department": "PO",
+  "monitorName": "Paweł"}
 
