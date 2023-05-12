@@ -1,0 +1,14 @@
+### Add sheets
+POST http://localhost:8080/app/sheets
+Content-Type: application/json
+
+{
+  "number": "2/03/2023",
+  "procesType": "pizza",
+  "body": "Miejsce na komentarz",
+  "rate": 95,
+  "monitorName": "Paweł",
+  "teamName": "ZODK"
+}
+
+

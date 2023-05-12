@@ -28,6 +28,7 @@ public class Sheet {
     private String number;
 
     @Column(nullable = false)
+    @Enumerated(EnumType.STRING)
     private ProcesType procesType;
 
     @Column(length = 2000)

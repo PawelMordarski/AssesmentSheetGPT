@@ -1,0 +1,8 @@
+### Add notes
+POST http://localhost:8080/api/notes
+Content-Type: application/json
+
+{
+  "comment": "Test comment2"
+}
+

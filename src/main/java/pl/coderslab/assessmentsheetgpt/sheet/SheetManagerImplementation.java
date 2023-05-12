@@ -12,6 +12,7 @@ import pl.coderslab.assessmentsheetgpt.team.TeamRepository;
 
 import javax.transaction.Transactional;
 import java.util.List;
+import java.util.Optional;
 
 @Service
 @Slf4j
@@ -32,15 +33,15 @@ public class SheetManagerImplementation implements SheetManager {
                                 () -> new IllegalArgumentException("No monitor called " + request.monitorName()));
         Team team =
                 teamRepository
-                        .findByNameAndMonitor(request.teamName(), monitor)
+                        .findByName(request.teamName())
                         .orElseThrow(
                                 () -> new IllegalArgumentException("No team called " + request.teamName()));
 
         List<Note> noteList = noteRepository.findAllByTeamAndSheetIsNotNull(team);
 
-        if (noteList.isEmpty()) {
-            throw new IllegalStateException("No notes");
-        }
+//        if (noteList.isEmpty()) {
+//            throw new IllegalStateException("No notes");
+//        }
 
         Sheet sheet =
                 Sheet.builder()
@@ -62,6 +63,21 @@ public class SheetManagerImplementation implements SheetManager {
         noteRepository.saveAll(noteList);
                 return toSummary(sheet);
 
+    }
+
+    @Override
+    public SheetSummary update(UpdateSheetRequest request) {
+        return null;
+    }
+
+    @Override
+    public List<SheetSummary> getAll() {
+        return null;
+    }
+
+    @Override
+    public Optional<SheetSummary> getByNumber() {
+        return Optional.empty();
     }
 
     private SheetSummary toSummary(Sheet sheet){
