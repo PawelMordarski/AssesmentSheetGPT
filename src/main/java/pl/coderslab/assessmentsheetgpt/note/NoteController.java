@@ -1,4 +1,4 @@
-package pl.coderslab.assessmentsheetgpt.monitor;
+package pl.coderslab.assessmentsheetgpt.note;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -11,15 +11,15 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/api/monitors")
 @Slf4j
 @RequiredArgsConstructor
-public class MonitorController {
+public class NoteController {
 
-    private final MonitorRepository monitorRepository;
+    private final NoteRepository noteRepository;
 
     @PostMapping
-    public Monitor addMonitor(@RequestBody Monitor monitor) {
-        monitorRepository.save(monitor);
-        log.debug("Added monitor: {}", monitor);
-        return monitor;
+    public Note addNote(@RequestBody Note note) {
+        noteRepository.save(note);
+        log.debug("Added note: {}", note);
+        return note;
     }
 
 }

@@ -1,4 +1,4 @@
-package pl.coderslab.assessmentsheetgpt.monitor;
+package pl.coderslab.assessmentsheetgpt.team;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -7,19 +7,19 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+
 @RestController
-@RequestMapping("/api/monitors")
+@RequestMapping("/api/teams")
 @Slf4j
 @RequiredArgsConstructor
-public class MonitorController {
+public class TeamController {
 
-    private final MonitorRepository monitorRepository;
+    private final TeamRepository teamRepository;
 
     @PostMapping
-    public Monitor addMonitor(@RequestBody Monitor monitor) {
-        monitorRepository.save(monitor);
-        log.debug("Added monitor: {}", monitor);
-        return monitor;
+    public Team addTeam(@RequestBody Team team) {
+        teamRepository.save(team);
+        log.debug("Added team: {}", team);
+        return team;
     }
-
 }

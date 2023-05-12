@@ -3,7 +3,7 @@ POST http://localhost:8080/api/monitors
 Content-Type: application/json
 
 {
-  "personalNumber": "pi11818",
-  "name": "Rafał Oboza"
+  "personalNumber": "pi11808",
+  "name": "Paweł"
 }
 

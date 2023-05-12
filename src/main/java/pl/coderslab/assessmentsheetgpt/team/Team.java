@@ -25,7 +25,7 @@ public class Team {
     @Column(nullable = false, unique = true)
     private String department;
 
-    @ManyToOne(optional = false)
+    @ManyToOne
     private Monitor monitor;
 
 
