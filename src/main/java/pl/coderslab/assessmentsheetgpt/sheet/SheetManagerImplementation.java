@@ -13,6 +13,7 @@ import pl.coderslab.assessmentsheetgpt.team.TeamRepository;
 import javax.transaction.Transactional;
 import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 @Service
 @Slf4j
@@ -45,7 +46,7 @@ public class SheetManagerImplementation implements SheetManager {
                         .monitor(monitor)
                         .team(team)
                         .rate(request.rate())
-                        .procesType(request.procesType())
+                        .proces(request.proces())
                         .body(request.body())
                         .noted(false)
                         .noteList(noteList)
@@ -62,25 +63,54 @@ public class SheetManagerImplementation implements SheetManager {
     }
 
     @Override
+    @Transactional
     public SheetSummary update(UpdateSheetRequest request) {
-        return null;
+        return sheetRepository
+                .findByNumber(request.number())
+                .map(
+                        sheet -> {
+                            sheet.setProces(request.proces());
+                            if (request.body() != null) {
+                                sheet.setBody(request.body());
+                            }
+                            if (request.noted() != null) {
+                                if (sheet.isNoted()) {
+                                    throw new IllegalStateException("Sheet was noted");
+                                }
+                                sheet.setNoted(true);
+                            }
+
+                            sheet.setBody(request.body());
+                            sheet.setRate(request.rate());
+                            return sheet;
+                        })
+                .map(sheetRepository::save)
+                .map(this::toSummary)
+                .orElseThrow(() -> new IllegalArgumentException("No sheets with number: " + request.number()));
     }
 
     @Override
     public List<SheetSummary> getAll() {
-        return null;
+        List<Sheet> sheets = sheetRepository.findAll();
+        return sheets
+                .stream()
+                .map(this::toSummary)
+                .collect(Collectors.toList());
     }
 
     @Override
-    public Optional<SheetSummary> getByNumber() {
-        return Optional.empty();
+    @Transactional
+    public Optional<SheetSummary> getByNumber(String number) {
+        Optional<Sheet> sheet = sheetRepository.findByNumber(number);
+        return sheet
+                .map(this::toSummary);
     }
 
     private SheetSummary toSummary(Sheet sheet){
         return new SheetSummary(
                 sheet.getNumber(),
                 sheet.getMonitor().getName(),
-                sheet.getProcesType(),
+                sheet.getProces(),
                 sheet.getTeam().getName(),
                 sheet.getRate(),
                 sheet.getAddedOn(),

@@ -28,8 +28,7 @@ public class Sheet {
     private String number;
 
     @Column(nullable = false)
-    @Enumerated(EnumType.STRING)
-    private ProcesType procesType;
+    String proces;
 
     @Column(length = 2000)
     private String body;
@@ -52,5 +51,6 @@ public class Sheet {
     private Monitor monitor;
 
     @PrePersist
-    public void prePersist() {this.addedOn = LocalDateTime.now(); }
+    public void prePersist() {
+        this.addedOn = LocalDateTime.now(); }
 }

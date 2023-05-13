@@ -10,5 +10,5 @@ public record CreateSheetRequest(
         @NotBlank String teamName,
         @NotBlank String monitorName,
         @NotBlank String body,
-        ProcesType procesType) {
+        String proces) {
 }

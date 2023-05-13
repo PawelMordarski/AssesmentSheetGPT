@@ -1,14 +1,24 @@
 ### Add sheets
-POST http://localhost:8080/app/sheets
+POST http://localhost:8080/api/sheets
 Content-Type: application/json
 
 {
-  "number": "2/03/2023",
-  "procesType": "pizza",
+  "number": "34543",
+  "proces": "POŻYCZKA",
   "body": "Miejsce na komentarz",
-  "rate": 95,
+  "rate": 100,
   "monitorName": "Paweł",
   "teamName": "ZODK"
 }
 
+### Update sheets
+PUT http://localhost:8080/api/sheets/34543
+Content-Type: application/json
 
+{
+  "number": "34543",
+  "proces": "Depo",
+  "rate": 95,
+  "Body": "Non possumus!",
+  "noted": true
+}

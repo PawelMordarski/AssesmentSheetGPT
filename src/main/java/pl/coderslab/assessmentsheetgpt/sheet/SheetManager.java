@@ -11,6 +11,6 @@ public interface SheetManager {
 
     List<SheetSummary> getAll();
 
-    Optional<SheetSummary> getByNumber();
+    Optional<SheetSummary> getByNumber(String number);
 
 }
