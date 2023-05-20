@@ -1,14 +1,14 @@
 ### Add sheets
-POST http://localhost:8080/api/sheets
+POST http://localhost:8080/api/sheets/add
 Content-Type: application/json
 
 {
-  "number": "34543",
-  "proces": "POŻYCZKA",
-  "body": "Miejsce na komentarz",
-  "rate": 100,
+  "number": "1/1/23",
+  "rate": 50,
+  "teamName": "ZODK",
   "monitorName": "Paweł",
-  "teamName": "ZODK"
+  "body": "Średnio",
+  "proces": "POŻYCZKA"
 }
 
 ### Update sheets

@@ -9,6 +9,8 @@ import org.springframework.web.server.ResponseStatusException;
 
 import javax.validation.Valid;
 import java.net.URI;
+import java.util.List;
+import java.util.Optional;
 
 @RestController
 @RequestMapping("/api/sheets")
@@ -32,6 +34,26 @@ public class SheetController {
         SheetSummary summary = sheetManager.update(request);
         return ResponseEntity.ok(summary);
     }
+
+    @GetMapping("/{number}")
+    public ResponseEntity<SheetSummary> getByNumber(@PathVariable String number) {
+        Optional<SheetSummary> sheetSummary = sheetManager.getByNumber(number);
+        return sheetSummary.map(ResponseEntity::ok)
+                .orElse(ResponseEntity.notFound().build());
+    }
+
+    @GetMapping
+    public List<SheetSummary> getAllSheets() {
+        List<SheetSummary> sheets = sheetManager.getAll();
+        log.debug("Collected {} sheets", sheets.size());
+        return sheets;
+    }
+//
+//    @PostMapping("/delete/{number}")
+//    public ResponseEntity<SheetSummary> deleteSheet (@PathVariable String number) {
+//        Optional<SheetSummary> sheetSummary = sheetManager.getByNumber(number);
+//
+//    }
 
 
 
