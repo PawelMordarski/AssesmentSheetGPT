@@ -98,6 +98,11 @@ public class SheetManagerImplementation implements SheetManager {
                 .collect(Collectors.toList());
     }
 
+    @Transactional
+    public void delete(String number) {
+        sheetRepository.deleteByNumber(number);
+    }
+
     @Override
     @Transactional
     public Optional<SheetSummary> getByNumber(String number) {

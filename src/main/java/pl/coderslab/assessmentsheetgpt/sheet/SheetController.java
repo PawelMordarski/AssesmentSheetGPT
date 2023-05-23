@@ -2,6 +2,7 @@ package pl.coderslab.assessmentsheetgpt.sheet;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -55,7 +56,14 @@ public class SheetController {
 //
 //    }
 
+    @DeleteMapping ("/{number}")
+    public void delete(@PathVariable String number) {
+        try {
+            sheetManager.delete(number);
+        } catch (EmptyResultDataAccessException e) {
+            throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Sheet with number " + number + "not exist");
+        }
 
-
+    }
 
 }

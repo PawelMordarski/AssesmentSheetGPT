@@ -85,12 +85,13 @@ class SheetManagerImplementationTest {
 
         SheetSummary sheetSummary =
                 sheetManagerImplementation.create(
-                        new CreateSheetRequest("1/1/23", 50, "ZODK", "Paweł", "Średnio", "POŻYCZKA"));
+                        new CreateSheetRequest("1234", 50, "ZODK", "Paweł", "Średnio", "POŻYCZKA"));
 
         assertThat(sheetSummary)
-                .hasFieldOrPropertyWithValue("number", "1/1/23")
+                .hasFieldOrPropertyWithValue("number", "1234")
                 .hasFieldOrPropertyWithValue("monitor", "Paweł")
-                .hasFieldOrPropertyWithValue("body", "Średnio")
+                .hasFieldOrPropertyWithValue("proces", "POŻYCZKA")
+                .hasFieldOrPropertyWithValue("body", "ZODK")
                 .hasFieldOrPropertyWithValue("rate", 50);
     }
 

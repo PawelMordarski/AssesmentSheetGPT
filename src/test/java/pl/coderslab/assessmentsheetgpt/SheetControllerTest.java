@@ -35,9 +35,9 @@ class SheetControllerTest {
     @Test
     public void whenCreateSheet_success() throws Exception{
         CreateSheetRequest request =
-                new CreateSheetRequest("1/1/23", 50, "ZODK", "Paweł", "Średnio", "POŻYCZKA");
+                new CreateSheetRequest("number", 100, "teamName", "monitorName", "body", "proces");
         SheetSummary summary =
-                new SheetSummary("2/1/23", "Rafał", "BANKOWOŚĆ", "tak se", 30, LocalDateTime.now(), 2);
+                new SheetSummary("number", "monitorName", "proces", "body", 100, LocalDateTime.now(), 0);
         when(sheetManager.create(request)).thenReturn(summary);
 
         mockMvc
@@ -46,7 +46,7 @@ class SheetControllerTest {
                                 .contentType(MediaType.APPLICATION_JSON)
                                 .content(objectMapper.writeValueAsString(request)))
                 .andExpect(status().isCreated())
-                .andExpect(header().string(LOCATION, "/api/sheets"));
+                .andExpect(header().string(LOCATION, "/api/sheets/number"));
     }
 
     @Test

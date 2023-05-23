@@ -13,4 +13,6 @@ public interface SheetManager {
 
     Optional<SheetSummary> getByNumber(String number);
 
+    void delete(String number);
+
 }
