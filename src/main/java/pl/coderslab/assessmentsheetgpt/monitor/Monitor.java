@@ -26,8 +26,4 @@ public class Monitor {
 
     private String name;
 
-    @OneToMany
-    @ToString.Exclude
-    private List<Team> teams = new ArrayList<>();
-
 }

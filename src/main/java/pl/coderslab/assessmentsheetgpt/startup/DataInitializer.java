@@ -48,7 +48,6 @@ public class DataInitializer {
         Team team1 =
                 Team.builder()
                         .name("ZODK")
-                        .monitor(monitor1)
                         .department("PO")
                         .build();
         teamRepository.save(team1);
@@ -56,7 +55,6 @@ public class DataInitializer {
         Team team2 =
                 Team.builder()
                         .name("ZOP")
-                        .monitor(monitor1)
                         .department("PO")
                         .build();
         teamRepository.save(team2);
@@ -64,7 +62,6 @@ public class DataInitializer {
         Team team3 =
                 Team.builder()
                         .name("CC")
-                        .monitor(monitor2)
                         .department("CRM")
                         .build();
         teamRepository.save(team3);
@@ -72,24 +69,9 @@ public class DataInitializer {
         Team team4 =
                 Team.builder()
                         .name("ZOR")
-                        .monitor(monitor2)
                         .department("CRM")
                         .build();
         teamRepository.save(team4);
-
-        List<Team> teams1 = new ArrayList<>();
-        teams1.add(team1);
-        teams1.add(team2);
-
-        List<Team> teams2 = new ArrayList<>();
-        teams1.add(team3);
-        teams1.add(team4);
-
-        monitor1.setTeams(teams1);
-        monitorRepository.save(monitor1);
-
-        monitor2.setTeams(teams2);
-        monitorRepository.save(monitor2);
 
 
         Sheet sheet1 =

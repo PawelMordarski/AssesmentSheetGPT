@@ -4,10 +4,5 @@ Content-Type: application/json
 
 {
   "name": "ZORRO",
-  "department": "zOKE",
-  "monitor": {
-    "id": 1,
-    "personalNumber": "string",
-    "name": "string"
-  }
+  "department": "zOKE"
 }

@@ -9,4 +9,6 @@ import java.util.Optional;
 public interface NoteRepository extends JpaRepository<Note, Long> {
     Optional<Note> findById(Integer Id);
 
+    Note findByComment(String comment);
+
 }

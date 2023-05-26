@@ -130,7 +130,7 @@ public class SheetManagerImplementation implements SheetManager {
                 sheet.getTeam().getName(),
                 sheet.getRate(),
                 sheet.getAddedOn(),
-                sheet.getNote());
+                sheet.getNote().getComment());
 
 
     }

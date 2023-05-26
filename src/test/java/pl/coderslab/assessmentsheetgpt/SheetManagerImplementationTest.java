@@ -77,11 +77,9 @@ class SheetManagerImplementationTest {
         Team team = Team.builder().name("ZODK").build();
         when(teamRepository.findByName("ZODK"))
                 .thenReturn(Optional.of(team));
-        List<Note> noteList =
-                List.of(
-                        Note.builder().comment("test comment").team(team).build(),
-                        Note.builder().comment("test comment 2").team(team).build());
-        when(noteRepository.findAllByTeam(team)).thenReturn(noteList);
+        Note note = Note.builder().id(1).build();
+        when(noteRepository.findById(1));
+
 
         SheetSummary sheetSummary =
                 sheetManagerImplementation.create(

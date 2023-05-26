@@ -22,9 +22,6 @@ public class Note {
 
     private String comment;
 
-//    @OneToOne
-//    private Sheet sheet;
-
     @ManyToOne
     private Team team;
 

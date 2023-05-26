@@ -26,7 +26,4 @@ public class Team {
     @Column(nullable = false)
     private String department;
 
-    @ManyToOne
-    @ToString.Exclude
-    private Monitor monitor;
 }

@@ -37,7 +37,7 @@ class SheetControllerTest {
         CreateSheetRequest request =
                 new CreateSheetRequest("number", 100, "teamName", "monitorName", "body", "proces");
         SheetSummary summary =
-                new SheetSummary("number", "monitorName", "proces", "body", 100, LocalDateTime.now(), 0);
+                new SheetSummary("number", "monitorName", "proces", "body", 100, LocalDateTime.now(), "comment");
         when(sheetManager.create(request)).thenReturn(summary);
 
         mockMvc

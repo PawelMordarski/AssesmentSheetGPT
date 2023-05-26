@@ -3,7 +3,7 @@ POST http://localhost:8080/api/sheets
 Content-Type: application/json
 
 {
-  "number": "1234",
+  "number": "123",
   "rate": 50,
   "teamName": "ZODK",
   "monitorName": "Paweł",
@@ -12,45 +12,25 @@ Content-Type: application/json
 }
 
 ### Delete sheets
-DELETE http://localhost:8080/api/sheets/1234
+DELETE http://localhost:8080/api/sheets/3
 
 ### Update sheets
 PUT http://localhost:8080/api/sheets/123
 Content-Type: application/json
 
-//{
-//  "number": "55",
-//  "proces": "Depo",
-//  "rate": 20,
-//  "body": "Non possumus!",
-//  "edited": true,
-//  "note": {
-//    "id": 1,
-//    "comment": "brak akceptacji"
-//  }
-//}
-
 {
   "number": "123",
-  "proces": "string",
-  "rate": 11,
-  "body": "string",
+  "proces": "Keto",
+  "rate": 5,
+  "body": "Non possumus!",
   "edited": true,
   "note": {
     "id": 1,
-    "comment": "string",
-    "team": {
-      "id": 2,
-      "name": "ZOP",
-      "department": "PO",
-      "monitor": {
-        "id": 1,
-        "personalNumber": "pi11808",
-        "name": "Paweł"
-      }
-    }
+    "comment": "brak akceptacji"
   }
 }
+
+
 
 ### Get Sheets
 GET http://localhost:8080/api/sheets/lowest
