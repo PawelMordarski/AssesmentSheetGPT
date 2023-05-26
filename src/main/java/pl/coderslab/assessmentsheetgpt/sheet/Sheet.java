@@ -36,7 +36,7 @@ public class Sheet {
     @Column(name = "added")
     private LocalDateTime addedOn;
 
-    private boolean noted;
+    private boolean edited;
 
     private Integer rate;
 

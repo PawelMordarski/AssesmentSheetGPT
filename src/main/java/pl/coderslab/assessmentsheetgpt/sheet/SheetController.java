@@ -49,21 +49,16 @@ public class SheetController {
         log.debug("Collected {} sheets", sheets.size());
         return sheets;
     }
-//
-//    @PostMapping("/delete/{number}")
-//    public ResponseEntity<SheetSummary> deleteSheet (@PathVariable String number) {
-//        Optional<SheetSummary> sheetSummary = sheetManager.getByNumber(number);
-//
-//    }
 
-    @DeleteMapping ("/{number}")
+    @DeleteMapping("/{number}")
     public void delete(@PathVariable String number) {
         try {
             sheetManager.delete(number);
         } catch (EmptyResultDataAccessException e) {
-            throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Sheet with number " + number + "not exist");
+            throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Sheet with number " + number + " not exist");
         }
 
     }
+
 
 }

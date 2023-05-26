@@ -3,7 +3,7 @@ POST http://localhost:8080/api/sheets
 Content-Type: application/json
 
 {
-  "number": "1234",
+  "number": "12345",
   "rate": 50,
   "teamName": "ZODK",
   "monitorName": "Paweł",
@@ -12,19 +12,19 @@ Content-Type: application/json
 }
 
 ### Delete sheets
-DELETE http://localhost:8080/api/sheets/1234
+DELETE http://localhost:8080/api/sheets/1
 
 ### Update sheets
-PUT http://localhost:8080/api/sheets/1234
+PUT http://localhost:8080/api/sheets/1
 Content-Type: application/json
 
 {
-  "number": "1234",
+  "number": "12345",
   "proces": "Depo",
   "rate": 60,
   "Body": "Non possumus!",
   "noted": true
 }
 
-### Get Sheet
-GET http://localhost:8080/api/sheets/1234
+### Get Sheets
+GET http://localhost:8080/api/sheets/12345

@@ -15,4 +15,5 @@ public interface SheetManager {
 
     void delete(String number);
 
+//    List<Sheet> getLowestRate(double lowestRate);
 }

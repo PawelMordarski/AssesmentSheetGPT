@@ -3,7 +3,11 @@ POST http://localhost:8080/api/teams
 Content-Type: application/json
 
 {
-  "name": "ZODK",
-  "department": "PO",
-  "monitorName": "Paweł"}
-
+  "name": "ZORRO",
+  "department": "zOKE",
+  "monitor": {
+    "id": 1,
+    "personalNumber": "string",
+    "name": "string"
+  }
+}

@@ -10,5 +10,6 @@ public record SheetSummary(
         String proces,
         String body,
         Integer rate,
-        @JsonFormat(pattern = "eee MMM dd hh:mm:ss yyyy") LocalDateTime addedOn, int size) {
+        @JsonFormat(pattern = "eee MMM dd hh:mm:ss yyyy") LocalDateTime addedOn,
+        java.util.List<pl.coderslab.assessmentsheetgpt.note.Note> noteList) {
 }

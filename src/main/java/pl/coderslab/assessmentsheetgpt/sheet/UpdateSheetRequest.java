@@ -11,5 +11,5 @@ public record UpdateSheetRequest (
     @NotBlank String proces,
     @Range(min = 0, max = 100) Integer rate,
     @Size(max = 2000) String body,
-    @AssertTrue Boolean noted){
+    @AssertTrue Boolean edited){
 }

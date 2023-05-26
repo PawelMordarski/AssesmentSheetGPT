@@ -48,7 +48,7 @@ public class SheetManagerImplementation implements SheetManager {
                         .rate(request.rate())
                         .proces(request.proces())
                         .body(request.body())
-                        .noted(false)
+                        .edited(false)
                         .noteList(noteList)
                         .build();
         sheetRepository.save(sheet);
@@ -73,11 +73,11 @@ public class SheetManagerImplementation implements SheetManager {
                             if (request.body() != null) {
                                 sheet.setBody(request.body());
                             }
-                            if (request.noted() != null) {
-                                if (sheet.isNoted()) {
-                                    throw new IllegalStateException("Sheet was noted");
+                            if (request.edited() != null) {
+                                if (sheet.isEdited()) {
+                                    throw new IllegalStateException("Sheet was edited");
                                 }
-                                sheet.setNoted(true);
+                                sheet.setEdited(true);
                             }
 
                             sheet.setBody(request.body());
@@ -100,6 +100,7 @@ public class SheetManagerImplementation implements SheetManager {
 
     @Transactional
     public void delete(String number) {
+
         sheetRepository.deleteByNumber(number);
     }
 
@@ -111,6 +112,21 @@ public class SheetManagerImplementation implements SheetManager {
                 .map(this::toSummary);
     }
 
+
+//    @Override
+//    public List<Sheet> getLowestRate(double lowestRate) {
+//        List<Sheet> allSheets = sheetRepository.findAll();
+//
+//        List<Sheet> sheets = allSheets.stream()
+//                .sorted(Comparator.comparing(Sheet::getRate))
+//                .collect(Collectors.toList());
+//
+//        return sheets;
+//
+//    }
+
+
+
     private SheetSummary toSummary(Sheet sheet){
         return new SheetSummary(
                 sheet.getNumber(),
@@ -119,7 +135,7 @@ public class SheetManagerImplementation implements SheetManager {
                 sheet.getTeam().getName(),
                 sheet.getRate(),
                 sheet.getAddedOn(),
-                sheet.getNoteList().size());
+                sheet.getNoteList());
 
 
     }

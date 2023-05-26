@@ -2,7 +2,6 @@ package pl.coderslab.assessmentsheetgpt.startup;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import lombok.extern.slf4j.XSlf4j;
 import org.springframework.context.event.ContextRefreshedEvent;
 import org.springframework.context.event.EventListener;
 import org.springframework.stereotype.Component;
@@ -95,7 +94,7 @@ public class DataInitializer {
 
         Sheet sheet1 =
                 Sheet.builder()
-                        .number("01")
+                        .number("1")
                         .proces("POŻYCZKA")
                         .rate(90)
                         .body("Pozytywny z uwagami")
@@ -107,7 +106,7 @@ public class DataInitializer {
 
         Sheet sheet2 =
                 Sheet.builder()
-                        .number("02")
+                        .number("2")
                         .proces("DEPO")
                         .rate(50)
                         .body("Pozytywny z uwagami")
@@ -120,7 +119,7 @@ public class DataInitializer {
 
         Sheet sheet3 =
                 Sheet.builder()
-                        .number("03")
+                        .number("3")
                         .proces("BANKOWOŚĆ")
                         .rate(0)
                         .body("Negatywny")
@@ -133,7 +132,7 @@ public class DataInitializer {
 
         Sheet sheet4 =
                 Sheet.builder()
-                        .number("04")
+                        .number("4")
                         .proces("POŻYCZKA")
                         .rate(90)
                         .body("Pozytywny z uwagami")

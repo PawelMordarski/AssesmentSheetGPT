@@ -3,6 +3,12 @@ POST http://localhost:8080/api/notes
 Content-Type: application/json
 
 {
-  "comment": "Test comment2"
-}
-
+  "comment": "testowy",
+  "sheet": {
+    "id": 1,
+    "noted": "true",
+    "team": {
+      "id": 1
+      }
+    }
+  }
