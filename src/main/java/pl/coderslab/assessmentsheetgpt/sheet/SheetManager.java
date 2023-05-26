@@ -18,4 +18,7 @@ public interface SheetManager {
     void delete(String number);
 
     List<Sheet> getSheetWithLowestRate(int i);
+
+    List<Sheet> getSheetWithHighestRate(int i);
+
 }

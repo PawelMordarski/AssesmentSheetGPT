@@ -106,6 +106,17 @@ public class SheetManagerImplementation implements SheetManager {
         return sheets;
     }
 
+    public List<Sheet> getSheetWithHighestRate(int limit) {
+        List<Sheet> allSheets = sheetRepository.findAll();
+
+        List<Sheet> sheets = allSheets.stream()
+                .sorted(Comparator.comparing(Sheet::getRate).reversed())
+                .limit(limit)
+                .collect(Collectors.toList());
+
+        return sheets;
+    }
+
 
 
     @Transactional

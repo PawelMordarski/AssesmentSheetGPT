@@ -33,4 +33,4 @@ Content-Type: application/json
 
 
 ### Get Sheets
-GET http://localhost:8080/api/sheets/lowest
+GET http://localhost:8080/api/sheets/highest
