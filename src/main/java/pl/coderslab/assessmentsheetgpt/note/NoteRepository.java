@@ -7,6 +7,6 @@ import javax.validation.constraints.NotBlank;
 import java.util.Optional;
 
 public interface NoteRepository extends JpaRepository<Note, Long> {
-    Optional<Note> findBySheet(Sheet sheet);
+    Optional<Note> findById(Integer Id);
 
 }

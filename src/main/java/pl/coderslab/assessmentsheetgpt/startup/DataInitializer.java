@@ -146,7 +146,6 @@ public class DataInitializer {
         Note note1=
                 Note.builder()
                         .comment("Brak akceptacji")
-                        .sheet(sheet1)
                         .team(team1)
                         .build();
         noteRepository.save(note1);
@@ -154,16 +153,11 @@ public class DataInitializer {
         Note note2=
                 Note.builder()
                         .comment("Częściowa akceptacja")
-                        .sheet(sheet2)
                         .team(team1)
                         .build();
         noteRepository.save(note2);
 
-        note1.setSheet(sheet1);
-        noteRepository.save(note1);
 
-        note2.setSheet(sheet2);
-        noteRepository.save(note2);
 
     }
 

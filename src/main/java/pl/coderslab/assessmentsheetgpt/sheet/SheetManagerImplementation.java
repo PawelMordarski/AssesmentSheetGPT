@@ -49,20 +49,10 @@ public class SheetManagerImplementation implements SheetManager {
                         .proces(request.proces())
                         .body(request.body())
                         .edited(false)
-//                        .note(note)
                         .build();
         sheetRepository.save(sheet);
 
-//        Note note =
-//                noteRepository
-//                        .note.setSheet(sheet);
 
-
-//        for (Note note : noteList){
-//            note.setSheet(sheet);
-//        }
-//
-//        noteRepository.saveAll(noteList);
                 return toSummary(sheet);
 
     }
@@ -104,6 +94,18 @@ public class SheetManagerImplementation implements SheetManager {
                 .map(this::toSummary)
                 .collect(Collectors.toList());
     }
+
+    public List<Sheet> getSheetWithLowestRate(int limit) {
+        List<Sheet> allSheets = sheetRepository.findAll();
+
+        List<Sheet> sheets = allSheets.stream()
+                .sorted(Comparator.comparing(Sheet::getRate))
+                .limit(limit)
+                .collect(Collectors.toList());
+
+        return sheets;
+    }
+
 
 
     @Transactional

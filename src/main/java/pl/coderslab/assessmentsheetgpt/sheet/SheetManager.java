@@ -13,6 +13,9 @@ public interface SheetManager {
 
     Optional<SheetSummary> getByNumber(String number);
 
+
+
     void delete(String number);
 
+    List<Sheet> getSheetWithLowestRate(int i);
 }

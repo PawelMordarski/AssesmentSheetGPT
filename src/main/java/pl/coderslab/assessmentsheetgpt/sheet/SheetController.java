@@ -51,6 +51,12 @@ public class SheetController {
         return sheets;
     }
 
+
+    @GetMapping("/lowest")
+    public List<Sheet> getSheetWithLowestRate() {
+        return sheetManager.getSheetWithLowestRate(1);
+    }
+
     @DeleteMapping("/{number}")
     public void delete(@PathVariable String number) {
         try {
