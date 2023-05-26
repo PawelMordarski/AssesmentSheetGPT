@@ -11,6 +11,7 @@ import pl.coderslab.assessmentsheetgpt.team.Team;
 import pl.coderslab.assessmentsheetgpt.team.TeamRepository;
 
 import javax.transaction.Transactional;
+import java.util.Comparator;
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
@@ -38,7 +39,6 @@ public class SheetManagerImplementation implements SheetManager {
                         .orElseThrow(
                                 () -> new IllegalArgumentException("No team called " + request.teamName()));
 
-        List<Note> noteList = noteRepository.findAllByTeam(team);
 
         Sheet sheet =
                 Sheet.builder()
@@ -49,18 +49,24 @@ public class SheetManagerImplementation implements SheetManager {
                         .proces(request.proces())
                         .body(request.body())
                         .edited(false)
-                        .noteList(noteList)
+//                        .note(note)
                         .build();
         sheetRepository.save(sheet);
 
-        for (Note note : noteList){
-            note.setSheet(sheet);
-        }
+//        Note note =
+//                noteRepository
+//                        .note.setSheet(sheet);
 
-        noteRepository.saveAll(noteList);
+
+//        for (Note note : noteList){
+//            note.setSheet(sheet);
+//        }
+//
+//        noteRepository.saveAll(noteList);
                 return toSummary(sheet);
 
     }
+
 
     @Override
     @Transactional
@@ -75,13 +81,14 @@ public class SheetManagerImplementation implements SheetManager {
                             }
                             if (request.edited() != null) {
                                 if (sheet.isEdited()) {
-                                    throw new IllegalStateException("Sheet was edited");
+                                    throw new IllegalStateException("Sheet was already edited");
                                 }
                                 sheet.setEdited(true);
                             }
 
                             sheet.setBody(request.body());
                             sheet.setRate(request.rate());
+                            sheet.setNote(request.note());
                             return sheet;
                         })
                 .map(sheetRepository::save)
@@ -98,9 +105,9 @@ public class SheetManagerImplementation implements SheetManager {
                 .collect(Collectors.toList());
     }
 
+
     @Transactional
     public void delete(String number) {
-
         sheetRepository.deleteByNumber(number);
     }
 
@@ -113,20 +120,6 @@ public class SheetManagerImplementation implements SheetManager {
     }
 
 
-//    @Override
-//    public List<Sheet> getLowestRate(double lowestRate) {
-//        List<Sheet> allSheets = sheetRepository.findAll();
-//
-//        List<Sheet> sheets = allSheets.stream()
-//                .sorted(Comparator.comparing(Sheet::getRate))
-//                .collect(Collectors.toList());
-//
-//        return sheets;
-//
-//    }
-
-
-
     private SheetSummary toSummary(Sheet sheet){
         return new SheetSummary(
                 sheet.getNumber(),
@@ -135,7 +128,7 @@ public class SheetManagerImplementation implements SheetManager {
                 sheet.getTeam().getName(),
                 sheet.getRate(),
                 sheet.getAddedOn(),
-                sheet.getNoteList());
+                sheet.getNote());
 
 
     }

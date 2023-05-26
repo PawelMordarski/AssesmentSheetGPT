@@ -40,9 +40,8 @@ public class Sheet {
 
     private Integer rate;
 
-    @OneToMany(mappedBy = "sheet")
-    @ToString.Exclude
-    private List<Note> noteList = new ArrayList<>();
+    @OneToOne
+    private Note note;
 
     @ManyToOne(optional = false)
     private Team team;

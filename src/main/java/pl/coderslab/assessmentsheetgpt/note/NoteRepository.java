@@ -1,10 +1,12 @@
 package pl.coderslab.assessmentsheetgpt.note;
 
 import org.springframework.data.jpa.repository.JpaRepository;
-import pl.coderslab.assessmentsheetgpt.team.Team;
+import pl.coderslab.assessmentsheetgpt.sheet.Sheet;
 
-import java.util.List;
+import javax.validation.constraints.NotBlank;
+import java.util.Optional;
 
 public interface NoteRepository extends JpaRepository<Note, Long> {
-    List<Note> findAllByTeam(Team team);
+    Optional<Note> findBySheet(Sheet sheet);
+
 }

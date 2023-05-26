@@ -22,7 +22,7 @@ public class Note {
 
     private String comment;
 
-    @ManyToOne
+    @OneToOne
     private Sheet sheet;
 
     @ManyToOne

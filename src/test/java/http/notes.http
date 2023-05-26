@@ -5,8 +5,8 @@ Content-Type: application/json
 {
   "comment": "testowy",
   "sheet": {
-    "id": 1,
-    "noted": "true",
+    "id": 2,
+    "edited": "true",
     "team": {
       "id": 1
       }

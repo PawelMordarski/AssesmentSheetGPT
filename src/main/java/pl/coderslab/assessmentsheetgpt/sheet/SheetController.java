@@ -30,7 +30,7 @@ public class SheetController {
     @PutMapping("/{number}")
     public ResponseEntity<SheetSummary> update(@PathVariable String number, @RequestBody @Valid UpdateSheetRequest request) {
         if (!number.equals(request.number())) {
-            throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Sheet with number " + request.number() + "not exist");
+            throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Sheet with number " + request.number() + " not exist");
         }
         SheetSummary summary = sheetManager.update(request);
         return ResponseEntity.ok(summary);
@@ -42,6 +42,7 @@ public class SheetController {
         return sheetSummary.map(ResponseEntity::ok)
                 .orElse(ResponseEntity.notFound().build());
     }
+
 
     @GetMapping
     public List<SheetSummary> getAllSheets() {

@@ -1,6 +1,8 @@
 package pl.coderslab.assessmentsheetgpt.sheet;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
+import org.springframework.lang.Nullable;
+import pl.coderslab.assessmentsheetgpt.note.Note;
 
 import java.time.LocalDateTime;
 
@@ -11,5 +13,5 @@ public record SheetSummary(
         String body,
         Integer rate,
         @JsonFormat(pattern = "eee MMM dd hh:mm:ss yyyy") LocalDateTime addedOn,
-        java.util.List<pl.coderslab.assessmentsheetgpt.note.Note> noteList) {
+        @Nullable Note comment) {
 }
