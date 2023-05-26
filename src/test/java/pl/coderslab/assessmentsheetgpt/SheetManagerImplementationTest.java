@@ -1,6 +1,5 @@
 package pl.coderslab.assessmentsheetgpt;
 
-import org.hibernate.validator.constraints.ModCheck;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
@@ -8,7 +7,6 @@ import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 import pl.coderslab.assessmentsheetgpt.monitor.Monitor;
 import pl.coderslab.assessmentsheetgpt.monitor.MonitorRepository;
-import pl.coderslab.assessmentsheetgpt.note.Note;
 import pl.coderslab.assessmentsheetgpt.note.NoteRepository;
 import pl.coderslab.assessmentsheetgpt.sheet.CreateSheetRequest;
 import pl.coderslab.assessmentsheetgpt.sheet.SheetManagerImplementation;
@@ -17,7 +15,6 @@ import pl.coderslab.assessmentsheetgpt.sheet.SheetSummary;
 import pl.coderslab.assessmentsheetgpt.team.Team;
 import pl.coderslab.assessmentsheetgpt.team.TeamRepository;
 
-import java.util.List;
 import java.util.Optional;
 
 import static org.assertj.core.api.Assertions.assertThat;
@@ -73,12 +70,16 @@ class SheetManagerImplementationTest {
     @Test
     public void whenCreateSheet_success() {
         Monitor monitor = Monitor.builder().name("Paweł").build();
-        when(monitorRepository.findByName("Paweł")).thenReturn(Optional.of(monitor));
+        when(monitorRepository.findByName("Paweł"))
+                .thenReturn(Optional.of(monitor));
+
         Team team = Team.builder().name("ZODK").build();
         when(teamRepository.findByName("ZODK"))
                 .thenReturn(Optional.of(team));
-        Note note = Note.builder().id(1).build();
-        when(noteRepository.findById(1));
+
+//        Note note = Note.builder().comment("odrzucono").build();
+//        when(noteRepository.findByComment("odrzucono"))
+//                .thenReturn(Optional.of(note));
 
 
         SheetSummary sheetSummary =

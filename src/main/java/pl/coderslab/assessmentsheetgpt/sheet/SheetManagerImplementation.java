@@ -129,10 +129,8 @@ public class SheetManagerImplementation implements SheetManager {
                 sheet.getProces(),
                 sheet.getTeam().getName(),
                 sheet.getRate(),
-                sheet.getAddedOn(),
-                sheet.getNote().getComment());
-
-
+                sheet.getAddedOn());
+//                sheet.getNote().getComment());
     }
 
 
