@@ -3,7 +3,7 @@ POST http://localhost:8080/api/sheets
 Content-Type: application/json
 
 {
-  "number": "123",
+  "number": "10",
   "rate": 50,
   "teamName": "ZODK",
   "monitorName": "Paweł",
@@ -11,26 +11,77 @@ Content-Type: application/json
   "proces": "POŻYCZKA"
 }
 
-### Delete sheets
-DELETE http://localhost:8080/api/sheets/3
-
-### Update sheets
-PUT http://localhost:8080/api/sheets/123
+### Add sheets
+POST http://localhost:8080/api/sheets
 Content-Type: application/json
 
 {
-  "number": "123",
-  "proces": "Keto",
-  "rate": 5,
-  "body": "Non possumus!",
+  "number": "20",
+  "rate": 15,
+  "teamName": "ZODK",
+  "monitorName": "Paweł",
+  "proces": "POŻYCZKA"
+}
+
+### Add sheets
+POST http://localhost:8080/api/sheets
+Content-Type: application/json
+
+{
+  "number": "30",
+  "rate": 90,
+  "teamName": "ZODK",
+  "monitorName": "Tstow",
+  "body": "Średnio",
+  "proces": "POŻYCZKA"
+}
+
+### Delete sheets
+DELETE http://localhost:8080/api/sheets/10
+
+### Update sheets
+PUT http://localhost:8080/api/sheets/30
+Content-Type: application/json
+
+{
+  "number": "30",
+  "proces": "DEPO",
+  "rate": 95,
+  "body": "Body",
   "edited": true,
   "note": {
+    "id": 3,
+    "comment": "Akceptacja z uwagami",
+    "team": {
+      "id": 4,
+      "name": "ZOR",
+      "department": "CRM"
+    }
+  },
+  "team": {
+    "id": 4,
+    "name": "ZOR",
+    "department": "CRM"
+  },
+  "monitor": {
     "id": 1,
-    "comment": "brak akceptacji"
+    "personalNumber": "pi11808",
+    "name": "Paweł"
   }
 }
 
 
+### Get Sheets
+GET http://localhost:8080/api/sheets/5552
+
+### Get Sheets
+GET http://localhost:8080/api/sheets/by_team/10
+
+###Get Sheets
+GET http://localhost:8080/api/sheets/by_monitor/10
 
 ### Get Sheets
 GET http://localhost:8080/api/sheets/highest
+
+### Get Sheets
+GET http://localhost:8080/api/sheets/lowest

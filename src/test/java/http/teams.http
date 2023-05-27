@@ -3,6 +3,6 @@ POST http://localhost:8080/api/teams
 Content-Type: application/json
 
 {
-  "name": "ZORRO",
-  "department": "zOKE"
+  "name": "ZOKE",
+  "department": "CRM"
 }

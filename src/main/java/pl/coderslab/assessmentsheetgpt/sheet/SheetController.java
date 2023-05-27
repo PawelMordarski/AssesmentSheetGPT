@@ -62,6 +62,16 @@ public class SheetController {
         return sheetManager.getSheetWithHighestRate(1);
     }
 
+    @GetMapping("/by_team/{teamId}")
+    public List<Sheet> getSheetsByTeam(@PathVariable Integer teamId) {
+        return sheetManager.getSheetsByTeam(teamId);
+    }
+
+    @GetMapping("/by_monitor/{monitorId}")
+    public List<Sheet> getSheetsByMonitor(@PathVariable Integer monitorId) {
+        return sheetManager.getSheetsByMonitor(monitorId);
+    }
+
     @DeleteMapping("/{number}")
     public void delete(@PathVariable String number) {
         try {

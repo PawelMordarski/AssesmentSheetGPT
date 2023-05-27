@@ -77,11 +77,6 @@ class SheetManagerImplementationTest {
         when(teamRepository.findByName("ZODK"))
                 .thenReturn(Optional.of(team));
 
-//        Note note = Note.builder().comment("odrzucono").build();
-//        when(noteRepository.findByComment("odrzucono"))
-//                .thenReturn(Optional.of(note));
-
-
         SheetSummary sheetSummary =
                 sheetManagerImplementation.create(
                         new CreateSheetRequest("1234", 50, "ZODK", "Paweł", "Średnio", "POŻYCZKA"));

@@ -12,6 +12,5 @@ public record SheetSummary(
         String body,
         Integer rate,
         @JsonFormat(pattern = "eee MMM dd hh:mm:ss yyyy") LocalDateTime addedOn
-        //        @Nullable String comment
 ) {
 }

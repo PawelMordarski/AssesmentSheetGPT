@@ -3,12 +3,8 @@ POST http://localhost:8080/api/notes
 Content-Type: application/json
 
 {
-  "comment": "testowy",
-  "sheet": {
-    "id": 2,
-    "edited": "true",
+  "comment": "Akceptacja z uwagami",
     "team": {
       "id": 1
       }
     }
-  }

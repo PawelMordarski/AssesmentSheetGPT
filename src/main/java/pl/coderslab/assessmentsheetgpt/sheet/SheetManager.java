@@ -21,4 +21,7 @@ public interface SheetManager {
 
     List<Sheet> getSheetWithHighestRate(int i);
 
+    List<Sheet> getSheetsByTeam(Integer teamId);
+    List<Sheet> getSheetsByMonitor(Integer MonitorId);
+
 }

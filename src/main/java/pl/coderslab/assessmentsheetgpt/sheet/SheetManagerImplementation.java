@@ -79,6 +79,8 @@ public class SheetManagerImplementation implements SheetManager {
                             sheet.setBody(request.body());
                             sheet.setRate(request.rate());
                             sheet.setNote(request.note());
+                            sheet.setTeam(request.team());
+                            sheet.setMonitor(request.monitor());
                             return sheet;
                         })
                 .map(sheetRepository::save)
@@ -117,6 +119,28 @@ public class SheetManagerImplementation implements SheetManager {
         return sheets;
     }
 
+    public List<Sheet> getSheetsByTeam(Integer teamId) {
+        List<Sheet> allSheets = sheetRepository.findAll();
+
+
+        List<Sheet> sheets = allSheets.stream()
+                .filter(s -> s.getTeam().getId().equals(teamId))
+                .collect(Collectors.toList());
+
+        return sheets;
+    }
+
+
+    public List<Sheet> getSheetsByMonitor(Integer monitorId) {
+        List<Sheet> allSheets = sheetRepository.findAll();
+
+
+        List<Sheet> sheets = allSheets.stream()
+                .filter(s -> s.getMonitor().getId().equals(monitorId))
+                .collect(Collectors.toList());
+
+        return sheets;
+    }
 
 
     @Transactional
